@@ -1,6 +1,8 @@
 import RSA
+import random
 
-def MathematicalAttack(c, n, e):
+# Brute Force (Mathematical Attack) 
+def mathematical_attack(c, n, e):
     p = 0
     q = 0
     decipheredtext = ''
@@ -11,3 +13,14 @@ def MathematicalAttack(c, n, e):
             decipheredtext = RSA.Decrypt(c, p, q, e)
             return decipheredtext
     return decipheredtext
+
+#Chosen Cipher Text Attack
+def CCT_attack(c, n, e):
+    r = random.randint(1,n)
+    while not RSA.checkCoPrime(e, n):
+        e = random.randint(1,n)
+    cc = c * RSA.PowMod(r,e,n)
+
+    y = RSA.Decrypt(cc,)
+
+    return 1
