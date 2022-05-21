@@ -1,0 +1,14 @@
+Cipher: 1276597706680930753
+Decrypted Message: abeer
+Cipher: 435577528206840154
+Decrypted Message: bero
+Cipher: 685059159587323789
+Decrypted Message: beroo
+Cipher: 940066327239448069
+Decrypted Message: mama
+Cipher: 961440071983505729
+Decrypted Message: rona
+Cipher: 1036805584672238976
+Decrypted Message: yarab
+Cipher: 15390263689838558831176160186999857139219165815491801001868498248804437975725
+Decrypted Message: abeerbero

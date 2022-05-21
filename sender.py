@@ -29,5 +29,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 print("e: ", e)
 print("n: ", n)
 with open("e_n_file.txt", "a") as a_file:
-    a_file.write(e + "\n")
-    a_file.write(n)
+    a_file.write("e: "+e + "\n")
+    a_file.write("n: "+n + "\n")
+    a_file.close()
