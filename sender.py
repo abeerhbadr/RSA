@@ -22,6 +22,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 n = data.decode()
             j+=1
 
-    s.sendall(str(Encrypt("abcdefghijklmnopqrstuvwxyz12345678910~`!@#$%^&*()-_+=",n,e)).encode())
+    message = input("Enter the message to encrypt: ")
+    s.sendall(str(Encrypt(message,n,e)).encode())
 
 print(f"Received {data!r}")

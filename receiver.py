@@ -9,7 +9,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.listen()
     conn, addr = s.accept()
     # Using readlines()
-    file1 = open('myfile.txt', 'r')
+    file1 = open('P_Q_File.txt', 'r')
     Lines = file1.readlines()
   
     #count = 0
@@ -38,3 +38,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             #conn.sendall(data)
         decryptedMessage = RSA.Decrypt(cipher,p,q,pubKey)
         print('Decrypted Message: ',decryptedMessage)
+        # writing to file
+        with open("OutputFile.txt", "a") as a_file:
+            a_file.write("\n")
+            a_file.write(decryptedMessage)
+  
