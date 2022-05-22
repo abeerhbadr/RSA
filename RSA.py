@@ -49,7 +49,7 @@ def Encrypt(m, n, e):
     n=int(n)
     e = int(e)
     m_int = ConvertToInt(m)
-    print(ConvertToStr(m_int))
+    #print(ConvertToStr(m_int))
     c = PowMod(m_int, e, n)
     #c = ConvertToStr(c)
     #c = str(c)
