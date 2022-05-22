@@ -16,6 +16,7 @@ def mathematical_attack(c, n, e):
 
 #Chosen Cipher Text Attack
 def CCT_attack(c, p, q, e):
+    n = p*q
     r = random.randint(1,n)
     while not RSA.checkCoPrime(r, n):
         r = random.randint(1,n)
@@ -24,40 +25,3 @@ def CCT_attack(c, p, q, e):
     m = RSA.PowMod(RSA.ConvertToInt(y) * RSA.InvertModulo(r,n), 1, n)
     m = RSA.ConvertToStr(m)
     return m
-
-# generate c,n,e for the attacks
-choose_attack = input("choose attack -> for mathematical press 1, for CCA press 2 ")
-message = input("enter the message: ")
-
-file1 = open('p_q_attacks.txt', 'r')
-Lines = file1.readlines()
-
-pandq = []
-for line in Lines:
-    pandq.append(int(line.strip()))
-
-p = pandq[0]
-q = pandq[1]
-pubKey = RSA.generatePubKey((p-1)*(q-1))
-n = p*q
-
-cipher = RSA.Encrypt(message,n,pubKey)
-
-if choose_attack == str(1):
-    decipheredtext = mathematical_attack(cipher,n,pubKey)
-    
-    with open("MA_results", "a") as a_file:
-        a_file.write("Original Message: "+  message+ "\n")
-        a_file.write("Deciphered Message: "+  decipheredtext+ "\n")
-        a_file.close()
-
-if choose_attack == str(2):
-    decipheredtext = CCT_attack(cipher,p,q,pubKey)
-
-    with open("CCT_results", "a") as a_file:
-        a_file.write("Original Message: "+  message+ "\n")
-        a_file.write("Deciphered Message: "+  decipheredtext+ "\n")
-        a_file.close()
-
-
-
